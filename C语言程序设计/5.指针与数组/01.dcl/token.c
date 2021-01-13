@@ -118,18 +118,15 @@ void parseToken()
     else if (isAlpha(c))
     {
         char *p = token;
-        *p = c;
-        ++p;
-
         for (;;)
         {
+            *p = c;
+            ++p;
             c = getch();
             if (!isAlnum(c))
             {
                 break;
             }
-            *p = c;
-            p++;
         }
 
         ungetch(c);
