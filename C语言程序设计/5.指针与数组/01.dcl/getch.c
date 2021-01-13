@@ -1,8 +1,9 @@
 #include <stdio.h>
 
 #define BUFSIZE 100
-char buf[BUFSIZE];
-char bufp;
+
+static char buf[BUFSIZE];
+static char bufp;
 
 int getch()
 {
