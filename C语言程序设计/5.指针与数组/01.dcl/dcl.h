@@ -32,3 +32,7 @@ void dcl();
 char *getOut();
 char *getName();
 char *getDatatype();
+
+// 分词反解析函数
+void initUndcl();
+void undcl();

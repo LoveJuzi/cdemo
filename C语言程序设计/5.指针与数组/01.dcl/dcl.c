@@ -103,3 +103,37 @@ void dirdcl()
         }
     }
 }
+
+void initUndcl()
+{
+    parseToken();
+}
+
+void undcl()
+{
+    char temp[OUTSIZE * 2];
+    for (;;)
+    {
+        if (getTokentype() == END)
+        {
+            break;
+        }
+
+        if (getTokentype() == NAME)
+        {
+            sprintf(temp, "%s %s", getToken(), out);
+            strcpy(out, temp);
+        }
+        else if (getTokentype() == PARENS || getTokentype() == BRACKETS)
+        {
+            strcat(out, getToken());
+        }
+        else if (getTokentype() == POINTER)
+        {
+            sprintf(temp, "(*%s)", out);
+            strcpy(out, temp);
+        }
+
+        parseToken();
+    }
+}
