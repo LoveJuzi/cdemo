@@ -28,4 +28,4 @@ char *getOut();
 char *getName();
 char *getDatatype();
 void initDatatype();
-void dcl(void);
+void dcl();
