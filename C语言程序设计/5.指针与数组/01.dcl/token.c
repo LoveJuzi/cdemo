@@ -71,7 +71,6 @@ void parseToken()
 {
     // 跳过空白符号
     int c = getch();
-    char *p = token;
     for (;;)
     {
         if (!isSpace(c))
@@ -100,6 +99,7 @@ void parseToken()
     }
     else if (isLeftBrackets(c))
     {
+        char *p = token;
         for (;;)
         {
             *p = c;
@@ -117,6 +117,7 @@ void parseToken()
     }
     else if (isAlpha(c))
     {
+        char *p = token;
         *p = c;
         ++p;
 
