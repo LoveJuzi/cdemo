@@ -1,4 +1,4 @@
 #include <stdio.h>
 
-void *malloc(unsigned nbytes);
-void free(void *ap);
+void *malloc2(unsigned nbytes);
+void free2(void *ap);
