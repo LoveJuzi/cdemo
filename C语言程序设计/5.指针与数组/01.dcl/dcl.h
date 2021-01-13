@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+// 定义分词最大长度
 #define MAXTOKEN 100
 
 // 定义分词类型
@@ -17,15 +18,19 @@ enum
     END
 };
 
-char *getToken();
-int getTokentype();
+// 字符读取函数
 int getch();
 void ungetch();
-void parsetoken();
 
+// 分词处理函数
+void parseToken();
+char *getToken();
+int getTokentype();
+
+// 分词分析函数
+void initDatatype();
 void initDcl();
+void dcl();
 char *getOut();
 char *getName();
 char *getDatatype();
-void initDatatype();
-void dcl();

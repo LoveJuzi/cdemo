@@ -30,7 +30,7 @@ char *getDatatype()
 
 void initDatatype()
 {
-    parsetoken();
+    parseToken();
     if (getTokentype() == EOF)
     {
         return;
@@ -44,7 +44,7 @@ void dcl(void)
 
     for (;;)
     {
-        parsetoken();
+        parseToken();
         if (getTokentype() != POINTER)
         {
             break;
@@ -86,7 +86,7 @@ void dirdcl()
 
     for (;;)
     {
-        parsetoken();
+        parseToken();
         if (getTokentype() == PARENS)
         {
             strcat(out, " function returning");

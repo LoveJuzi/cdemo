@@ -5,7 +5,7 @@
 static char token[MAXTOKEN]; // 存入读取的分词
 static int tokentype;        // 存入读取的分词类型
 
-void parsetoken();
+void parseToken();
 
 char *getToken()
 {
@@ -67,7 +67,7 @@ int isRightBrackets(char c)
     return c == ']';
 }
 
-void parsetoken()
+void parseToken()
 {
     // 跳过空白符号
     int c = getch();
