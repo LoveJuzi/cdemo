@@ -19,6 +19,6 @@ $(OBJECTS): %.o : %.cpp
 	@$(CXX) -c $< -o $@
 
 clean:
-	@rm -rf $(TARGET) $(OBJECTS) $(LIB_TARGET_PATH) $(INC_TARGET_PATH)
+	@rm -rf $(TARGET) $(OBJECTS)
 
 .PHONY: clean
