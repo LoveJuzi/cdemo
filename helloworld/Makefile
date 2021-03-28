@@ -1,12 +1,18 @@
-TARGET_PATH = ./bin
-ROO_PATH    = ..
+TARGET_PATH       = ./bin
+CDEMO_ROOT_PATH   = ..
+UTIL_PATH         = $(CDEMO_ROOT_PATH)/util
 
 SOURCES = $(wildcard *.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 TARGET  = hello
 
-CXXFLAGS += -I$(ROO_PATH)/util/include 
-LDFLAGS  += -L$(ROO_PATH)/util/lib -lutil
+CXXFLAGS += -I$(UTIL_PATH)/include 
+LDFLAGS  += -L$(UTIL_PATH)/lib -lutil
+
+all: preference $(TARGET)
+
+preference:
+	@make -C $(UTIL_PATH)
 
 $(TARGET): $(OBJECTS)
 	@$(CXX) $^ $(LDFLAGS) -o $@
@@ -18,3 +24,6 @@ $(OBJECTS): %.o: %.cpp
 
 clean:
 	@rm -rf $(TARGET) $(OBJECTS)
+
+.PHONY: all preference clean
+
