@@ -8,15 +8,14 @@ OBJECTS = $(SOURCES:.cpp=.o)
 TARGET  = libutil.a
 
 $(TARGET): $(OBJECTS)
-	@ar -crv $@ $(OBJECTS)
+	@ar -crv $@ $^
 	@mkdir -p $(INC_TARGET_PATH)
 	@mkdir -p $(LIB_TARGET_PATH)
-	@echo $(INCLUES)
 	@cp $(INCLUES) $(INC_TARGET_PATH)/
 	@cp $(TARGET) $(LIB_TARGET_PATH)/
 
 $(OBJECTS): %.o : %.cpp
-	@$(CXX) -c $< -o $@
+	@$(CXX) $< $(CPPFLAGS) $(CXXFLAGS) -c -o $@
 
 clean:
 	@rm -rf $(TARGET) $(OBJECTS)
