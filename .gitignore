@@ -53,3 +53,5 @@ dkms.conf
 
 a.out
 *.h.gch
+
+tags
