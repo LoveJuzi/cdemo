@@ -1,4 +1,4 @@
-TAGET := qtopengl
+TAGET := qtopengl.exe
 
 QT_INC := -I$(QT_INC_DIR)/QtCore -I$(QT_INC_DIR)/QtGui -I$(QT_INC_DIR)/QtSvg -I$(QT_INC_DIR)/QtUiTools -I$(QT_INC_DIR)/QtXml -I$(QT_INC_DIR)/QtWidgets -I$(QT_INC_DIR)
 
