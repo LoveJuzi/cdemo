@@ -1,6 +1,10 @@
 #include "window.qt.h"
 #include <fstream>
+#include <glm/ext/matrix_projection.hpp>
+#include <glm/fwd.hpp>
+#include <glm/trigonometric.hpp>
 #include <sstream>
+#include <glm/gtx/transform.hpp>
 
 Window::Window()
 {
@@ -19,16 +23,27 @@ void Window::initializeGL()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
+
 void Window::resizeGL(int w, int h)
 {
-    Q_UNUSED(w);
-    Q_UNUSED(h);
+    glm::mat4 Projection = glm::perspective(glm::radians(45.0f), (float) w / (float) h, 0.1f, 100.0f);
+    glm::mat4 View = glm::lookAt(
+        glm::vec3(4,3,3),
+        glm::vec3(0,0,0),
+        glm::vec3(0,1,0)
+    );
+    glm::mat4 Model = glm::mat4(1.0f);
+    mvp = Projection * View * Model;
 }
 
 void Window::paintGL()
 {
     // application shader
     glUseProgram(programID);
+
+    GLuint MatrixID = glGetUniformLocation(programID, "MVP");
+
+    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp[0][0]);
 
     // An array of 3 vectors which represents 3 vertices
     static const GLfloat g_vertex_buffer_data[] = {

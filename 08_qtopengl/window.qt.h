@@ -4,6 +4,8 @@
 #include <QOpenGLWindow>
 #include <QOpenGLFunctions_3_3_Core>
 
+#include <glm/ext/matrix_float4x4.hpp>
+
 class Window : public QOpenGLWindow, protected QOpenGLFunctions_3_3_Core
 {
     Q_OBJECT
@@ -18,6 +20,7 @@ protected:
 
 private: // inner config
     GLuint programID; // shader id
+    glm::mat4 mvp;    // mvp
 
 private: // common functions
     GLuint loadShaders(const char* vertex_file_path, const char* fragment_file_path);
