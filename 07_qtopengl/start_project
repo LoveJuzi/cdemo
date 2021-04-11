@@ -1,0 +1,7 @@
+vim +"cd ." \
+    +"set tags+=./tags" \
+    +"set tags+=../utils/tags" \
+    +"set tags+=/home/juzi/Qt5.9.4/5.9.4/gcc_64/include" \
+    +"set path+=./**" \
+    +"set path+=/home/juzi/Qt5.9.4/5.9.4/gcc_64/include" \
+    project 
